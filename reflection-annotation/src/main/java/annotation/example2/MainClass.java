@@ -5,6 +5,7 @@ import java.lang.reflect.Method;
 
 public class MainClass {
     public static void main(String[] args) {
+        System.out.println("Example");
 
         // Дістаємо анотації класу за допомогою рефлексії
         Class<MyClass> obj = MyClass.class;
