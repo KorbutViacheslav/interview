@@ -12,7 +12,7 @@ public class CheckMain {
         //Порівнюємо отримані hashCode
         boolean booleanHash = addressHash == postalHash;
 
-        //Порівнюємо об'єкти
+        //Порівнюємо об'єкти equals
         boolean booleanEquals = address.equals(postalAddress);
         System.out.println("Address hashCode: " + addressHash +
                 "\nPostalAddress: " + postalHash +
