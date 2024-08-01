@@ -5,5 +5,5 @@ public enum DayOfWeek {
         DayOfWeek dayOfWeek = DayOfWeek.SATURDAY;
         System.out.println(dayOfWeek);
     }
-
-    }
+    //Чи буде тут помилка якщо зробити тут метод маін?
+}
