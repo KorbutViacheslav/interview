@@ -14,9 +14,15 @@ class EnumExample1 {
         Arrays.stream(Season.values()).forEach(System.out::println);
 
         //use valueOf() method
-        System.out.println("Value of WINTER is: "+Season.valueOf("WINTER"));
+        System.out.println("Value of WINTER is: " + Season.valueOf("WINTER"));
 
         //use ordinal
-        System.out.println("Index of WINTER is: "+Season.valueOf("WINTER").ordinal());
+        System.out.println("Index of WINTER is: " + Season.valueOf("WINTER").ordinal());
     }
+    private class Soda{
+
+    }
+}
+class Sous{
+
 }

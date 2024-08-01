@@ -2,8 +2,8 @@ package equals;
 
 public class CheckMain {
     public static void main(String[] args) {
-        Address address = new Address("YourCountry", "YourCity");
-        PostalAddress postalAddress = new PostalAddress("YourCountry", "YourCity");
+        Address address = new Address(new String("YourCountry"), "YourCity", 256);
+        PostalAddress postalAddress = new PostalAddress("YourCountry", "YourCity", 256);
 
         //Отримуємо hashCode двох об'єктів
         var addressHash = address.hashCode();
