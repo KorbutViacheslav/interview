@@ -1,0 +1,9 @@
+Types of Classes:
+    -Final Class
+    -Static Class
+    -Abstract Class
+    -Concrete Class
+    -POJO Class
+    -Singleton Class
+    -Inner Class
+
