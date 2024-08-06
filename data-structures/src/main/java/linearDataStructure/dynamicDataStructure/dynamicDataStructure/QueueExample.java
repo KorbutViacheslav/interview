@@ -48,18 +48,17 @@ package linearDataStructure.dynamicDataStructure.dynamicDataStructure;
  */
 public class QueueExample {
 
-    int front;
-    int rear;
-    int[] arr;
+    int front;//Індекс першого елемента в черзі.
+    int rear;//Індекс останнього елемента в черзі.
+    int[] arr;//Масив для зберігання елементів черги.
 
-    QueueExample()
-    {
+    QueueExample() {
         front=rear=-1;
         arr=new int[10];
     }
-
-    void enqueue(int a)
-    {
+    //Додає елемент в кінець черги. Перевіряє, чи черга не переповнена.
+    //Збільшує rear і поміщає новий елемент в кінець. Якщо черга була порожня, то встановлює front в 0.
+    void enqueue(int a) {
         if(rear==arr.length-1)
             System.out.println("overflow");
         else
@@ -68,9 +67,12 @@ public class QueueExample {
         if(front==-1)
             front++;
     }
-
-    int dequeue()
-    {
+    //Видаляє і повертає елемент з початку черги.
+    //    Перевіряє, чи черга не порожня.
+    //    Зберігає значення першого елемента в змінну x.
+    //    Збільшує front, щоб вказати на наступний елемент.
+    //    Якщо після видалення елемента черга стала порожньою, то встановлює rear в -1.
+    int dequeue() {
         int x=-1;
         if(front==-1)
             System.out.println("underflow");
@@ -80,11 +82,22 @@ public class QueueExample {
             rear--;
         return x;
     }
-
-    void display()
-    {
+    //Виводить всі елементи черги на екран.
+    void display() {
         for(int i=front;i<=rear;i++)
             System.out.print(arr[i]+" ");
         System.out.println();
+    }
+    public static void main(String[] args) {
+        QueueExample queue = new QueueExample();
+        queue.enqueue(10);
+        queue.enqueue(20);
+        queue.enqueue(30);
+        System.out.println("Елементи черги:");
+        queue.display();
+        int x = queue.dequeue();
+        System.out.println("Видалений елемент: " + x);
+        System.out.println("Елементи черги після видалення:");
+        queue.display();
     }
 }
