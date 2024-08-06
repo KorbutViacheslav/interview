@@ -1,7 +1,11 @@
 Resource - https://www.geeksforgeeks.org/data-structures
 
-Що таке структура даних?
+There are two types of Data Structures:
+    1. Primitive Data Structures
+    2. Non-primitive Data Structures
 
+
+Що таке структура даних?
 Структура даних — це сховище, яке використовується для зберігання та організації даних.
 Це спосіб упорядкування даних на комп’ютері для ефективного доступу та оновлення.
 
