@@ -1,5 +1,5 @@
 package linearDataStructure.dynamicDataStructure.dynamicDataStructure;
-/**
+/**(FIFO - First In, First Out)
  * What is Queue?
  * The queue is called an abstract data structure. Data is always added to one end (enqueued),
  * and removed from the other (dequeue).

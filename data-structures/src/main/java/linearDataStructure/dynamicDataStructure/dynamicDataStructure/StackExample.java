@@ -1,8 +1,7 @@
 package linearDataStructure.dynamicDataStructure.dynamicDataStructure;
 
-/**
+/**(LIFO - Last In, First Out)
  * What is a stack?
- * <p>
  * A stack is a representation of nodes. There are two components to each node:
  * data and next (storing address of next node). Each node’s data portion contains the assigned value,
  * and its next pointer directs the user to the node that has the stack’s subsequent item.
