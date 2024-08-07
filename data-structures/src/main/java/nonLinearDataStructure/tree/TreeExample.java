@@ -15,7 +15,6 @@ public class TreeExample {
         inorder(r.left);
         System.out.print(r.data + " ");
         inorder(r.right);
-
     }
 
     static void postorder(TLNode r) {
@@ -24,7 +23,6 @@ public class TreeExample {
         postorder(r.left);
         postorder(r.right);
         System.out.print(r.data + " ");
-
     }
 
     public static void main(String[] args) {
@@ -46,8 +44,6 @@ public class TreeExample {
 
         postorder(root);
         System.out.println();
-
-
     }
 }
 
