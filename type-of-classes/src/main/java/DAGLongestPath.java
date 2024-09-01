@@ -1,36 +1,31 @@
 import java.util.*;
 
 public class DAGLongestPath {
-
     static final int MAX_NODES = 256;
 
-    public static int findLongestPath(List<int[]> edges, int n) {
+    // Candidate function
+    public static int findLongestPath(List<int[]> graph, int n) {
         // Ініціалізуємо граф і масив для зберігання кількості входів у вершини (in-degree)
         List<List<Integer>> adjList = new ArrayList<>(MAX_NODES);
         int[] inDegree = new int[MAX_NODES];
-
         for (int i = 0; i < MAX_NODES; i++) {
             adjList.add(new ArrayList<>());
         }
-
         // Заповнюємо граф та рахуємо in-degree для кожної вершини
-        for (int[] edge : edges) {
+        for (int[] edge : graph) {
             int u = edge[0];
             int v = edge[1];
             adjList.get(u).add(v);
             inDegree[v]++;
         }
-
         // Знаходимо топологічне сортування
         List<Integer> topologicalOrder = new ArrayList<>();
         Queue<Integer> queue = new LinkedList<>();
-
         for (int i = 0; i < n; i++) {
             if (inDegree[i] == 0) {
                 queue.add(i);
             }
         }
-
         while (!queue.isEmpty()) {
             int node = queue.poll();
             topologicalOrder.add(node);
@@ -41,7 +36,6 @@ public class DAGLongestPath {
                 }
             }
         }
-
         // Ініціалізуємо масив для зберігання довжини найдовшого шляху до кожної вершини
         int[] longestPath = new int[MAX_NODES];
 
@@ -53,7 +47,6 @@ public class DAGLongestPath {
                 }
             }
         }
-
         // Знаходимо максимальне значення з longestPath масиву
         int maxLength = 0;
         for (int i = 0; i < n; i++) {
@@ -61,7 +54,6 @@ public class DAGLongestPath {
                 maxLength = longestPath[i];
             }
         }
-
         return maxLength;
     }
 
