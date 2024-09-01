@@ -5,56 +5,66 @@ public class DAGLongestPath {
 
     // Candidate function
     public static int findLongestPath(List<int[]> graph, int n) {
-        // Ініціалізуємо граф і масив для зберігання кількості входів у вершини (in-degree)
-        List<List<Integer>> adjList = new ArrayList<>(MAX_NODES);
-        int[] inDegree = new int[MAX_NODES];
-        for (int i = 0; i < MAX_NODES; i++) {
-            adjList.add(new ArrayList<>());
+        // Initialize distance array to store the longest path length from each node
+        int[] distance = new int[n];
+        Arrays.fill(distance, 0);
+
+        // Perform topological sort to process nodes in a dependency-safe order
+        List<Integer> sorted = topologicalSort(graph, n);
+
+        // Traverse the topologically sorted list and update distances
+        for (int node : sorted) {
+            for (int[] edge : graph) {
+                if (edge[0] == node) {
+                    distance[edge[1]] = Math.max(distance[edge[1]], distance[node] + 1);
+                }
+            }
         }
-        // Заповнюємо граф та рахуємо in-degree для кожної вершини
+
+        // Find the maximum distance (longest path length)
+        int maxDistance = 0;
+        for (int d : distance) {
+            maxDistance = Math.max(maxDistance, d);
+        }
+
+        return maxDistance;
+    }
+
+    // Function to perform topological sort using Kahn's Algorithm
+    public static List<Integer> topologicalSort(List<int[]> graph, int n) {
+        int[] inDegree = new int[n]; // Array to store in-degree of each node
+
+        // Calculate in-degree of each node
         for (int[] edge : graph) {
-            int u = edge[0];
-            int v = edge[1];
-            adjList.get(u).add(v);
-            inDegree[v]++;
+            inDegree[edge[1]]++;
         }
-        // Знаходимо топологічне сортування
-        List<Integer> topologicalOrder = new ArrayList<>();
+
         Queue<Integer> queue = new LinkedList<>();
+        List<Integer> sorted = new ArrayList<>();
+
+        // Add nodes with in-degree 0 to the queue (starting nodes)
         for (int i = 0; i < n; i++) {
             if (inDegree[i] == 0) {
                 queue.add(i);
             }
         }
+
+        // Process nodes in the queue (topological order)
         while (!queue.isEmpty()) {
             int node = queue.poll();
-            topologicalOrder.add(node);
-            for (int neighbor : adjList.get(node)) {
-                inDegree[neighbor]--;
-                if (inDegree[neighbor] == 0) {
-                    queue.add(neighbor);
-                }
-            }
-        }
-        // Ініціалізуємо масив для зберігання довжини найдовшого шляху до кожної вершини
-        int[] longestPath = new int[MAX_NODES];
+            sorted.add(node);
 
-        // Обходимо вершини в топологічному порядку
-        for (int node : topologicalOrder) {
-            for (int neighbor : adjList.get(node)) {
-                if (longestPath[neighbor] < longestPath[node] + 1) {
-                    longestPath[neighbor] = longestPath[node] + 1;
+            for (int[] edge : graph) {
+                if (edge[0] == node) {
+                    inDegree[edge[1]]--;
+                    if (inDegree[edge[1]] == 0) {
+                        queue.add(edge[1]);
+                    }
                 }
             }
         }
-        // Знаходимо максимальне значення з longestPath масиву
-        int maxLength = 0;
-        for (int i = 0; i < n; i++) {
-            if (longestPath[i] > maxLength) {
-                maxLength = longestPath[i];
-            }
-        }
-        return maxLength;
+
+        return sorted;
     }
 
     public static void main(String[] args) {
