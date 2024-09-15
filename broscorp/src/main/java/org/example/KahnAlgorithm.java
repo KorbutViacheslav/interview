@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.*;
+
 //Топологічне сортування графу за алгоритмом Кана
 public class KahnAlgorithm {
     public static void topologicalSort(Map<Integer, List<Integer>> graph) {
