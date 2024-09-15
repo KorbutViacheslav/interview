@@ -14,7 +14,6 @@ public class GraphExample {
             adj[i] = new LinkedList<Integer>();
     }
 
-
     void addEdge(int u, int v) {
         adj[u].add(v);
     }
@@ -49,7 +48,6 @@ public class GraphExample {
             int x = itr.next();
             if (visited[x] == false) {
                 //visited[x]=true;
-
                 DFSUtil(x, visited);
             }
         }

@@ -112,6 +112,6 @@ public class DAGLongestPathTraining {
         }
         n++;
         int result = findLongestPath(edges, n);
-        System.out.println(result);  // Виведе: 3
+        System.out.println(result);
     }
 }
