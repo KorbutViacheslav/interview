@@ -11,7 +11,7 @@ public class KahnAlgorithm {
                 indegree[neighbor]++;
             }
         }
-
+///test
         // Очередь для вершин со степенью захода 0
         Queue<Integer> queue = new LinkedList<>();
         for (int i = 0; i < indegree.length; i++) {
